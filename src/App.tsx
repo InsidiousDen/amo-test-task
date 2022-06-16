@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import React, { FC } from "react";
+
+import CustomTable from "./components/Table/CustomTable";
+
+const App: FC = () => {
+  const headers1 = ["id", "username", "email", "phone", "city", "website"];
+  const headers2 = ["id", "title", "body", "userId"];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CustomTable type="users" headers={headers1} />
+      <CustomTable type="posts" headers={headers2} />
     </div>
   );
-}
+};
 
 export default App;
