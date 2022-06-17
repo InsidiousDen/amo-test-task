@@ -21,3 +21,7 @@ export interface UserDTO {
     bs: string;
   };
 }
+
+export interface ItemI {
+  [key: string]: string | number | ItemI;
+}

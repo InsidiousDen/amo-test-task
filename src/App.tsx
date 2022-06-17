@@ -1,8 +1,6 @@
-import "./App.css";
-
 import React, { FC } from "react";
 
-import CustomTable from "./components/Table/CustomTable";
+import CustomTable from "./components/CustomTable/CustomTable";
 
 const App: FC = () => {
   const headers1 = ["id", "username", "email", "phone", "city", "website"];

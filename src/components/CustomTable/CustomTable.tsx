@@ -12,7 +12,7 @@ import {
 import React, { ChangeEvent, FC, useState } from "react";
 
 import useFetch from "../../hook/useFetch";
-import TableRowComponent from "./TableRowComponent/TableRowComponent";
+import TableData from "../TableData/TableData";
 
 interface CustomTableProps {
   type: string;
@@ -38,15 +38,20 @@ const CustomTable: FC<CustomTableProps> = ({ type, headers }) => {
     <Container>
       <TableContainer component={Paper} sx={{ m: 5 }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
+          <TableHead
+            sx={{
+              borderTop: "2px solid #61d6cc",
+              borderBottom: "2px solid #61d6cc",
+            }}
+          >
             <TableRow>
               {headers.map((item: string) => (
                 <TableCell
                   key={item}
                   align="left"
                   sx={{
-                    backgroundColor: "#3f51b5",
-                    color: "#fff",
+                    color: "#61d6cc",
+                    backgroundColor: "#fff",
                     textTransform: "capitalize",
                   }}
                 >
@@ -59,15 +64,12 @@ const CustomTable: FC<CustomTableProps> = ({ type, headers }) => {
             {data
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((item: any) => (
-                <TableRowComponent
-                  item={item}
-                  headers={headers}
-                  key={item.id}
-                />
+                <TableData item={item} headers={headers} key={item.id} />
               ))}
           </TableBody>
         </Table>
         <TablePagination
+          sx={{ borderTop: "2px solid #61d6cc" }}
           rowsPerPageOptions={[5, 10, 20]}
           component="div"
           count={data.length}
